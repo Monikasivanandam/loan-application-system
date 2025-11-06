@@ -1,6 +1,2 @@
-it's loan applying website ,where the user can register and login where we have different types of loan like educational,agricultural loan etc.. ,the user select the preferrred type of loan and apply to it and it has the applied loans lists.Implemented a robust backend using Node.js and Express.js with JWT authentication, session expiry handling, and MySQL database integration for user and loan data storage.
+A full-stack web application for managing bank loan applications. Users can register, log in, select from various loan types (e.g., educational, agricultural), apply with detailed forms, and know their applied loans all from a secure, user-friendly interface.
 
-Frontend: React.js 
-Backend: Node.js, Express.js
-Database: MySQL 
-Other: JWT for authentication, bcrypt for password hashing, CSS for styling.
