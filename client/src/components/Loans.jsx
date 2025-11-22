@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import useSessionExpiry from './useSessionExpiry';
+import "../css/App.css"
 
 function Loans() {
-    const [selectedLoan, setSelectedLoan] = useState(null); 
-    const [showModal, setShowModal] = useState(false); 
+    const [selectedLoan, setSelectedLoan] = useState(null);
+    const [showModal, setShowModal] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         dob: '',
@@ -64,7 +65,7 @@ function Loans() {
             await axios.post('http://localhost:5000/loans/apply', { loan_type: selectedLoan, ...formData }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
-            alert('Application submitted. Please go to the bank for further process.');
+            alert('Application submitted.');
             handleCloseModal();
             navigate('/applied');
         } catch (err) {
@@ -85,7 +86,7 @@ function Loans() {
                         <strong>Eligibility:</strong>   Students aged 18+, enrolled in recognized institutions. <br />
                         <strong>Benefits:</strong> Low interest rates, flexible repayment terms up to 15 years.
                     </p>
-                    <button onClick={() => handleApplyClick('educational')}>Apply Now</button>
+                    <button style={{ backgroundColor: "#4a90e2" }} onClick={() => handleApplyClick('educational')}>Apply Now</button>
                 </div>
 
                 <div className="loan-card">
@@ -95,7 +96,7 @@ function Loans() {
                         <strong>Eligibility:</strong>  Farmers with land ownership or lease. <br />
                         <strong>Benefits:</strong>  Subsidized rates, seasonal repayment options, and government-backed schemes for sustainable farming.
                     </p>
-                    <button onClick={() => handleApplyClick('agriculture')}>Apply Now</button>
+                    <button style={{ backgroundColor: "#4a90e2" }} onClick={() => handleApplyClick('agriculture')}>Apply Now</button>
                 </div>
 
                 <div className="loan-card">
@@ -106,7 +107,7 @@ function Loans() {
                         <strong>Eligibility:</strong>   Business owners with a viable plan and credit history. <br />
                         <strong>Benefits:</strong> Competitive rates, quick approval, and scalable terms.
                     </p>
-                    <button onClick={() => handleApplyClick('business')}>Apply Now</button>
+                    <button style={{ backgroundColor: "#4a90e2" }} onClick={() => handleApplyClick('business')}>Apply Now</button>
                 </div>
             </div>
 
@@ -125,9 +126,9 @@ function Loans() {
                                 required
                             />
                             <input
-                                type="date"
+                                type="text"
                                 name="dob"
-                                placeholder="Date of Birth"
+                                placeholder="Date of Birth (year-mm-dd)"
                                 value={formData.dob}
                                 onChange={handleChange}
                                 required
@@ -181,7 +182,7 @@ function Loans() {
                                 onChange={handleChange}
                                 required
                             />
-                            <button type="submit">Submit Application</button>
+                            <button className='btn-bl' type="submit">Submit Application</button>
                         </form>
                     </div>
                 </div>

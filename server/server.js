@@ -3,11 +3,13 @@ const cors = require('cors');
 const authRoutes = require('./routes/auth');
 const loanRoutes = require('./routes/loans');
 
+const adminRoutes = require('./routes/admin'); 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 
+app.use('/admin', adminRoutes);  
 app.use('/auth', authRoutes);
 app.use('/loans', loanRoutes);
 

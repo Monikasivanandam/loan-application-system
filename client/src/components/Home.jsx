@@ -1,4 +1,3 @@
-
 import useSessionExpiry from './useSessionExpiry';
 
 function Home() {

@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import "../css/App.css"
+import { Link } from 'react-router-dom';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -33,7 +35,7 @@ function Login() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    autoComplete="off"  
+                    autoComplete="off"
                 />
                 <input
                     type="password"
@@ -41,11 +43,13 @@ function Login() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    autoComplete="off"  
+                    autoComplete="off"
                 />
-                <button type="submit">Login</button>
+                <button className="btn-bl" type="submit">Login</button>
             </form>
-            <a href="/register">Don't have an account? Register</a>
+            <a href="/register" style={{textDecoration:"underline"}}>Don't have an account? Register</a>
+            <Link style={{textDecoration:"underline"}} to="/admin-login">Admin</Link>
+            {/* <Link style={{textDecoration:"underline"}} to="/admin-dashboard">Admin dashboard</Link> */}
         </div>
     );
 }

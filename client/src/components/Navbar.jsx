@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import "../css/style.css"
 
 function Navbar() {
-    const [isOpen, setIsOpen] = useState(false); 
+    const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        localStorage.clear(); 
+        localStorage.clear();
         navigate('/');
     };
 
@@ -20,7 +20,7 @@ function Navbar() {
                 <Link to="/home" onClick={() => setIsOpen(false)}>Home</Link>
                 <Link to="/loans" onClick={() => setIsOpen(false)}>Loans</Link>
                 <Link to="/applied" onClick={() => setIsOpen(false)}>Applied Loans</Link>
-                <button onClick={handleLogout} className="logout-btn">Logout</button>
+                <Link to="/" onClick={handleLogout} className="logout-btn">Logout</Link>
             </div>
             <div className="hamburger" onClick={toggleMenu}>
                 <span></span>

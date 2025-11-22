@@ -38,4 +38,17 @@ router.post('/login', (req, res) => {
     });
 });
 
+router.post('/admin-login', (req, res) => {
+    const { email, password } = req.body;
+    db.query('SELECT * FROM users WHERE email = ?', [email], async (err, results) => {
+        if (err || results.length === 0) return res.status(401).json({ message: 'Invalid credentials' });
+        const user = results[0];
+        if (user.role !== 'admin') return res.status(403).json({ message: 'Access denied' });
+        const isValid = await bcrypt.compare(password, user.password);
+        if (!isValid) return res.status(401).json({ message: 'Invalid credentials' });
+        const token = jwt.sign({ id: user.id, role: user.role }, 'your_secret_key', { expiresIn: '1h' });
+        res.json({ token, message: 'Admin login successful' });
+    });
+});
+
 module.exports = router;

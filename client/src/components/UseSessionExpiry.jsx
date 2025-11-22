@@ -15,12 +15,13 @@ const useSessionExpiry = () => {
                 localStorage.removeItem('token');
                 alert('Session expired due to inactivity.');
                 navigate('/');  
-            }, 3600000);  
+            }, 5600000);  
         };
 
         resetTimer();
 
         const handleActivity = () => resetTimer();
+        
         document.addEventListener('mousemove', handleActivity);
         document.addEventListener('keydown', handleActivity);
 

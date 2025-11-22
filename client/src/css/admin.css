@@ -1,0 +1,28 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    text-align: center;
+    justify-content: center;
+
+}
+
+th,
+td {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background: #8c4ae2;
+    color: white;
+    text-align: center;
+    justify-content: center;
+}
+
+
+
+.btn-reject {
+    background-color: red !important;
+}

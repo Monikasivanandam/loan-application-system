@@ -59,7 +59,7 @@ function Register() {
                     onChange={handleChange}
                     required
                 />
-                <button type="submit">Register</button>
+                <button className="btn-bl" type="submit">Register</button>
             </form>
             <a href="/">Already have an account? Login</a>
         </div>
