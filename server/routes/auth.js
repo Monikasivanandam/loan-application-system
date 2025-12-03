@@ -33,7 +33,7 @@ router.post('/login', (req, res) => {
         const user = results[0];
         const isValid = await bcrypt.compare(password, user.password);
         if (!isValid) return res.status(401).json({ message: 'Invalid credentials' });
-        const token = jwt.sign({ id: user.id }, 'your_secret_key', { expiresIn: '1h' });
+        const token = jwt.sign({ id: user.id }, 'key', { expiresIn: '1h' });
         res.json({ token, message: 'Login successful' });
     });
 });
@@ -46,7 +46,7 @@ router.post('/admin-login', (req, res) => {
         if (user.role !== 'admin') return res.status(403).json({ message: 'Access denied' });
         const isValid = await bcrypt.compare(password, user.password);
         if (!isValid) return res.status(401).json({ message: 'Invalid credentials' });
-        const token = jwt.sign({ id: user.id, role: user.role }, 'your_secret_key', { expiresIn: '1h' });
+        const token = jwt.sign({ id: user.id, role: user.role }, 'key', { expiresIn: '1h' });
         res.json({ token, message: 'Admin login successful' });
     });
 });

@@ -31,7 +31,7 @@ function AdminLogin() {
             <h2>Admin Login</h2>
             <form onSubmit={handleSubmit}>
                 <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                <input type="text" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 <button style={{ backgroundColor: "#4a90e2" }} type="submit">Login as Admin</button>
             </form>
         </div>
